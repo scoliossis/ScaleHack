@@ -222,6 +222,9 @@ public class Configs {
     public static boolean esp = false;
     @Setting(type = Setting.Type.BOOLEAN, name = "Chams", parent = "ESP")
     public static boolean chams = false;
+    @Setting(type = Setting.Type.MODE, name = "Chams Mode", parent = "Chams", mode = {"Offset", "Depth"})
+    public static int chamsMode = 0;
+
     @Setting(type = Setting.Type.BOOLEAN, name = "Ghost Chams", parent = "Chams")
     public static boolean ghostChams = false;
     @Setting(type = Setting.Type.BOOLEAN, name = "Glow", parent = "ESP")

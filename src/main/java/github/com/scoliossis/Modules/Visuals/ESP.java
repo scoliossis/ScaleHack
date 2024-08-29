@@ -4,6 +4,7 @@ import github.com.scoliossis.Screens.ClickGUI.Settings.Configs;
 import github.com.scoliossis.Util.C;
 import github.com.scoliossis.Util.ChatUtil;
 import github.com.scoliossis.Util.RenderUtil;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -61,9 +62,7 @@ public class ESP {
         if (!Configs.chams || !Configs.esp || !shouldESP(event.entity)) return;
 
         enableChams();
-        if (Configs.ghostChams) {
-            RenderUtil.glColor(new Color(255, 255, 255, 70));
-        }
+        if (Configs.ghostChams) RenderUtil.glColor(new Color(255, 255, 255, 70));
         //setColor(new Color(32, 245, 250, 70));
 
         chamsEnabled = true;
@@ -79,10 +78,16 @@ public class ESP {
     }
 
     public static void enableChams() {
-        GL11.glDisable(GL11.GL_DEPTH_TEST);
+        if (Configs.chamsMode == 0) {
+            GlStateManager.enablePolygonOffset();
+            GlStateManager.doPolygonOffset(1, -1000000);
+        }
+        else GL11.glDisable(GL11.GL_DEPTH_TEST);
     }
 
     public static void disableChams() {
+        GlStateManager.doPolygonOffset(1, 1000000);
+        GlStateManager.disablePolygonOffset();
         GL11.glEnable(GL11.GL_DEPTH_TEST);
     }
 

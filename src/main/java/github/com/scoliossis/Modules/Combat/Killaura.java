@@ -132,7 +132,7 @@ public class Killaura {
             }
 
             C.p().swingItem();
-            if (Configs.auraKeepSprint)
+            if (!Configs.auraKeepSprint)
                 PacketUtil.sendPacketNoEvent(new C02PacketUseEntity(entityHit, C02PacketUseEntity.Action.ATTACK));
             else C.mc.playerController.attackEntity(C.p(), entityHit);
 
