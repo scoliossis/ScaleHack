@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "package": "github.com.scoliossis.mixins",
+  "refmap": "mixins.mushroom.refmap.json",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "ChunkMixin",
+    "EntityLivingBaseMixin",
+    "EntityMixin",
+    "ModListMixin",
+    "NetworkManagerMixin",
+    "RenderLivingEntityMixin"
+  ],
+  "client": [
+    "EntityPlayerSPMixin",
+    "EntityRendererMixin",
+    "FontRendererMixin",
+    "GuiMainMenuMixin",
+    "MinecraftInterface",
+    "MinecraftMixin",
+    "MovementInputFromOptionsMixin"
+  ]
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "scalehack",
+    "name": "Scale Hack",
+    "description": "long live scale1337",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["scale"],
+    "credits": "my mom, she a real one",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
