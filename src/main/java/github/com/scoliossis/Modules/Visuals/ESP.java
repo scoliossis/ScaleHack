@@ -2,7 +2,6 @@ package github.com.scoliossis.Modules.Visuals;
 
 import github.com.scoliossis.Screens.ClickGUI.Settings.Configs;
 import github.com.scoliossis.Util.C;
-import github.com.scoliossis.Util.ChatUtil;
 import github.com.scoliossis.Util.RenderUtil;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -14,7 +13,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
-import java.nio.FloatBuffer;
 
 public class ESP {
     @SubscribeEvent
@@ -22,8 +20,7 @@ public class ESP {
         if (!Configs.esp || !Configs.glowESP) return;
 
         for (Entity ent : C.w().loadedEntityList) {
-            if (ent == C.p()) continue;
-            if (!(ent instanceof EntityPlayer)) continue;
+            if (!shouldESP(ent)) continue;
 
             float x = (float) (ent.lastTickPosX + (ent.posX - ent.lastTickPosX) * event.partialTicks);
             float y = (float) (ent.lastTickPosY + (ent.posY - ent.lastTickPosY) * event.partialTicks);
@@ -86,9 +83,11 @@ public class ESP {
     }
 
     public static void disableChams() {
-        GlStateManager.doPolygonOffset(1, 1000000);
-        GlStateManager.disablePolygonOffset();
-        GL11.glEnable(GL11.GL_DEPTH_TEST);
+        if (Configs.chamsMode == 0) {
+            GlStateManager.doPolygonOffset(1, 1000000);
+            GlStateManager.disablePolygonOffset();
+        }
+        else GL11.glEnable(GL11.GL_DEPTH_TEST);
     }
 
 

@@ -20,6 +20,10 @@ public class MovementUtil {
         return yaw;
     }
 
+    public static boolean isMoving(boolean y) {
+        return (C.p().posX != C.p().lastTickPosX || C.p().posZ != C.p().lastTickPosZ) || (C.p().posY != C.p().lastTickPosY && y);
+    }
+
     // pasted from mushroom
     public static void setMotion(double speed) {
         double forward = C.p().moveForward;

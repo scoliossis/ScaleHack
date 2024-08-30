@@ -2,13 +2,10 @@ package github.com.scoliossis.Modules.Visuals;
 
 import github.com.scoliossis.Events.BlockChangeEvent;
 import github.com.scoliossis.Events.ChunkLoadEvent;
-import github.com.scoliossis.Events.MotionEvent;
 import github.com.scoliossis.Screens.ClickGUI.Settings.Configs;
 import github.com.scoliossis.Util.C;
-import github.com.scoliossis.Util.ChatUtil;
 import github.com.scoliossis.Util.RenderUtil;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.BlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraftforge.client.event.RenderWorldLastEvent;

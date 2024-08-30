@@ -7,6 +7,7 @@ import github.com.scoliossis.Util.RenderUtil;
 import net.minecraft.util.Vec3;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
 import java.util.ArrayList;
 
 public class Trail {
@@ -15,7 +16,7 @@ public class Trail {
 
     @SubscribeEvent
     public void onMotionPost(MotionEvent.Post event) {
-        //if (C.p().posX != C.p().lastTickPosX || C.p().posZ != C.p().lastTickPosZ || C.p().posY != C.p().lastTickPosY)
+        //if (MovementUtil.isMoving(true))
             poses.add(C.p().getPositionVector());
 
         while (poses.size() > Configs.trailLength) poses.remove(0);
